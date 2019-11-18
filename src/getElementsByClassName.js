@@ -13,5 +13,10 @@ var getElementsByClassName = function(className) {
   		elementsWithClass.push(element);
   	}
   }
-  
+  // if the element has childNotes inside...find em!
+  if (elements.childNodes) {
+  	for (var i = 0; i < elements.childNodes.length; i++) {
+  		findElementsWithClass(elements.childNodes[i]);
+  	}
+  }
 };
