@@ -4,7 +4,14 @@
 // };
 
 // But instead we're going to implement it from scratch:
-var getElementsByClassName = function(className
-) {
-  // your code here
+
+// You should use document.body, element.childNodes, and element.classList
+var getElementsByClassName = function(className) {
+  var elementsWithClass = [];
+  var findElementsWithClass = function(element) {
+  	if (element.classList && element.classList.contains(className)) {
+  		elementsWithClass.push(element);
+  	}
+  }
+  
 };
