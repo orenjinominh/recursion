@@ -11,12 +11,16 @@ var getElementsByClassName = function(className) {
   var findElementsWithClass = function(element) {
   	if (element.classList && element.classList.contains(className)) {
   		elementsWithClass.push(element);
-  	}
-  }
+  	 }
   // if the element has childNotes inside...find em!
-  if (elements.childNodes) {
-  	for (var i = 0; i < elements.childNodes.length; i++) {
-  		findElementsWithClass(elements.childNodes[i]);
-  	}
+    if (element.childNodes) {
+  	  for (var i = 0; i < element.childNodes.length; i++) {
+  		findElementsWithClass(element.childNodes[i]);
+  	  }
+    }
   }
+  
+  findElementsWithClass(document.body);
+  return elementsWithClass;
+
 };
