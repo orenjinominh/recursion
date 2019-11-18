@@ -11,11 +11,22 @@ var stringifyJSON = function(obj) {
   // input: object
   // output: string complete with {} and quotes around the object key
   // ie "{'objectkey': property , 'objectkey2': property2 }"
-  var objectKeys = Object.keys(obj);
-  var propertiesArray = [];
-  for (var i = 0; i < objectKeys.length; i++) {
-  	
-  }
+
+  // set final string to be empty
+  var final = '';
+
+  if (Array.isArray(obj)) {
+    final += '[';
+    for (var i = 0; i < obj.length; i++) {
+      final += stringifyJSON(obj[i]);
+      if (i + 1 < obj.length) {
+        final += ',';
+      }
+    }
+    final += ']';
+  } 
+
+  return final;
 
 };
 
