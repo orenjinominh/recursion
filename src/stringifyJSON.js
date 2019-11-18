@@ -34,8 +34,11 @@ var stringifyJSON = function(obj) {
     return 'undefined';
   } else if (obj === null) {
     return 'null';
-  } 
-
+  } else if (typeof obj === 'string') {
+    final += '"' + obj + '"';
+  } else if (typeof obj === 'number') {
+    final += String(obj);
+  }
   return final;
 
 };
