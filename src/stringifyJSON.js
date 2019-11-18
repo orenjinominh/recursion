@@ -3,14 +3,12 @@ var stringifyJSON = function(obj) {
   var final = '';
 
   if (Array.isArray(obj)) {
-    final += '[';
-    for (var i = 0; i < obj.length; i++) {
-      final += stringifyJSON(obj[i]);
-      if (i < obj.length - 1) {
-        final += ',';
-      }
-    }
-    final += ']';
+    var stringArr = [];
+
+    obj.forEach(function(element){
+      stringArr.push(stringifyJSON(element));
+    })
+    return "[" + stringArr.toString() + "]";
   } else if (typeof obj === 'boolean') {
     if (obj) {
       final +='true';
