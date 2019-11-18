@@ -24,6 +24,16 @@ var stringifyJSON = function(obj) {
       }
     }
     final += ']';
+  } else if (typeof obj === 'boolean') {
+    if (obj) {
+      final +='true';
+    } else {
+      final += 'false';
+    }
+  } else if (obj === undefined) {
+    return 'undefined';
+  } else if (obj === null) {
+    return 'null';
   } 
 
   return final;
